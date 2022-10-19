@@ -1,7 +1,7 @@
 package domain;
 
 public class Trading implements VisitableItem{
-    public Trading(float price) {
+    public Trading(Float price) {
         this.price = price;
     }
 

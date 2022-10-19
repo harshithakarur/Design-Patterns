@@ -15,7 +15,7 @@ public abstract class Person {
     public abstract ProductMenu createProductMenu(int productType);
     public abstract void showProductMenu();
 
-    public ProductList getEnrolledCourses() {
+    public ProductList getBoughtProducts() {
         return boughtProducts;
     }
 
