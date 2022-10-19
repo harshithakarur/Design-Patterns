@@ -34,10 +34,11 @@ public class Facade implements VisitableItem {
 
         System.out.println("-------Facade Pattern-------");
         System.out.println("Handling Login using the Facade pattern");
-
+//        System.out.println("Before try block");
         try{
             if(dataManager.fetchPassword(name).equals(password))
             {
+//                System.out.println("Going to try block");
                 currentUser = createUser(name);
                 attachProductToUser(currentUser);
 
@@ -49,6 +50,7 @@ public class Facade implements VisitableItem {
                 System.exit(1);
             }
         } catch(Exception ex) {
+//            System.out.println("In catch block");
             System.out.println("Incorrect User Name or Password");
             System.exit(1);
         }

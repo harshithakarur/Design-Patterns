@@ -27,9 +27,11 @@ public class DataManager {
     {
 
         List<String> str =  getDataMap("SellerInfo.txt").get(userName) ;
+//        System.out.println(str);
         if(str == null)
         {
             str = getDataMap("BuyerInfo.txt").get(userName);
+//            System.out.println(str);
         }
         return str.get(0);
     }
@@ -39,8 +41,10 @@ public class DataManager {
         /*Initialize base on Person TYPE */
         if(!getDataMap("SellerInfo.txt").containsKey(userName))
         {
+            System.out.println("Going to if");
             return new Buyer(userName);
         }
+        System.out.println("Not Going to if");
         return new Seller(userName);
     }
     public List<Product> fetchProductMappingForUser(String name) throws Exception
@@ -52,12 +56,14 @@ public class DataManager {
     }
     private Map<String, List<String>> getDataMap(String fileName) throws Exception
     {
+//        System.out.println(fileName);
         File file = new File(FILE_PATH+fileName);
         BufferedReader br = new BufferedReader(new FileReader(file));
         String str;
         HashMap<String, List<String>> dataMapping = new HashMap<>();
         while((str = br.readLine()) != null)
         {
+//            System.out.println(str);
             String[] token = str.split(":");
             List<String> valueList = new ArrayList<>() ;
             if(token.length==2) {
@@ -67,10 +73,11 @@ public class DataManager {
                 }
                 else  valueList.add(token[1]);
             }
+//            System.out.println(token[0]);
 
 
             dataMapping.put(token[0], valueList);
-            //System.out.println(str);
+//            System.out.println(dataMapping);
         }
         return dataMapping;
     }
