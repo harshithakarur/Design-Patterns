@@ -2,7 +2,6 @@ package test;
 
 import domain.Product;
 
-import java.util.ListIterator;
 
 public class ProductIterator extends ListIterator<Product> {
 

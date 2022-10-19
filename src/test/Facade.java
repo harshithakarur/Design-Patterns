@@ -194,4 +194,4 @@ public class Facade implements VisitableItem {
     }
 }
 
-class Solution{ }
+class Offering{ }
