@@ -9,8 +9,10 @@ public class TestDemo {
     public static void main(String[] args) throws Exception {
         System.out.println("Enter User name:");
         String userName = sc.nextLine();
+//        System.out.println(userName);
         System.out.println("Enter User password:");
         String password = sc.nextLine();
+//        System.out.println(password);
         facade.login(userName, password);
 
     }

@@ -8,14 +8,17 @@ import domain.Seller;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
-import java.util.*;
 import java.util.stream.Collectors;
 
 public class DataManager {
     //Should edit file path
-    private static final String FILE_PATH = "C:\\Users\\Harshi\\Documents\\SER 515\\DesignPatterns\\DesignPatterns.hkarur\\src\\test files";
+    private static final String FILE_PATH = "C:\\Users\\Harshi\\Documents\\SER 515\\DesignPatterns\\DesignPatterns.hkarur\\src\\test files\\";
 
     public List<Product> initializeAllProducts() throws Exception
     {
@@ -23,15 +26,27 @@ public class DataManager {
         return getDataMap("ProductInfo.txt").keySet().stream().map(Product::new).collect(Collectors.toList());
     }
 
+//    public String fetchPassword(String userName) throws Exception
+//    {
+//        System.out.println(userName + " in fetch password");
+//        List<String> str =  getDataMap("SellerInfo.txt").get(userName) ;
+//        System.out.println(getDataMap("SellerInfo.txt").get(userName).toString());
+//        System.out.println(str.toString());
+//        if(str == null)
+//        {
+//            str = getDataMap("BuyerInfo.txt").get(userName);
+////            System.out.println(str);
+//        }
+//        return str.get(0);
+//    }
+
     public String fetchPassword(String userName) throws Exception
     {
 
         List<String> str =  getDataMap("SellerInfo.txt").get(userName) ;
-//        System.out.println(str);
         if(str == null)
         {
             str = getDataMap("BuyerInfo.txt").get(userName);
-//            System.out.println(str);
         }
         return str.get(0);
     }
@@ -56,15 +71,17 @@ public class DataManager {
     }
     private Map<String, List<String>> getDataMap(String fileName) throws Exception
     {
-//        System.out.println(fileName);
+        System.out.println(fileName);
         File file = new File(FILE_PATH+fileName);
         BufferedReader br = new BufferedReader(new FileReader(file));
         String str;
         HashMap<String, List<String>> dataMapping = new HashMap<>();
+//        str = br.readLine();
+//        System.out.println(str);
         while((str = br.readLine()) != null)
         {
 //            System.out.println(str);
-            String[] token = str.split(":");
+            String[] token = str.split(":",2);
             List<String> valueList = new ArrayList<>() ;
             if(token.length==2) {
                 if(dataMapping.containsKey(token[0])) {

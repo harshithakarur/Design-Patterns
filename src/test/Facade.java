@@ -32,10 +32,15 @@ public class Facade implements VisitableItem {
 
     public  void login(String name, String password) throws Exception {
 
+//        System.out.println(name + " in facade");
+//        System.out.println(password + " in facade");
+
         System.out.println("-------Facade Pattern-------");
         System.out.println("Handling Login using the Facade pattern");
 //        System.out.println("Before try block");
         try{
+//            System.out.println("In try block- outside if" );
+//            System.out.println(dataManager.fetchPassword(name));
             if(dataManager.fetchPassword(name).equals(password))
             {
 //                System.out.println("Going to try block");
