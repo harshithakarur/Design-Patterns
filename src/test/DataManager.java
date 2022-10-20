@@ -71,7 +71,7 @@ public class DataManager {
     }
     private Map<String, List<String>> getDataMap(String fileName) throws Exception
     {
-        System.out.println(fileName);
+//        System.out.println(fileName);
         File file = new File(FILE_PATH+fileName);
         BufferedReader br = new BufferedReader(new FileReader(file));
         String str;
